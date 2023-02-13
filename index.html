@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="title">Etch-A-Sketch</h1>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <!-- Slider to select pixel size that user drawns in -->
+    <div class = "slider-container">
+        <input type="range" min="5" max="50" value="27.5" class="slider" id="myRange">
+    </div>
+
+    <div class="buttons">
+            <button class="button" id="reset">Reset</button>
+            <button class="button" id="rainbow">Rainbow</button>
+            <button class="button" id="choose">Custom</button>
+            <!-- <button class="button" id="save">Save to file</button> -->
+    </div>
+    <script src="gridLogic.js" defer></script>
+
+</body>
+</html>

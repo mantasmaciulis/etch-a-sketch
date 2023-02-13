@@ -1,0 +1,79 @@
+
+body {
+    height: 100vh;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);}
+
+
+#canvas{
+    /* Note to future self. 1fr means take up one fraction of the container rows times. 
+    therefore, the following 2 lines will give us an nxm grid that takes up all the availiable
+    space evenly. */
+    display: flex;
+    border: 3px solid black;
+}
+
+#canvas-container{
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 6rem;
+    color: white;
+    outline-color: 3px solid black;
+    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black,0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
+}
+
+.buttons{
+    -webkit-appearance: none;
+    display: flex;
+    gap: 50px;
+    margin-top: 2vh;
+    justify-content: center;
+
+}
+
+.button{
+    width: 15vh;
+    height: 5vh;
+    background-color: white;
+    border: 3px solid #000;
+
+}
+
+#reset{
+    flex-basis: auto;
+}
+
+.slider{
+  -webkit-appearance: none;
+  display: flex;
+  justify-content: center;
+  align-items: space-evenly;
+  outline: none;
+  margin-top: 30vh;
+  background: white;
+  border: 3px solid black;
+
+  width: 10%; /*30% size of parent container*/
+  margin: 0 auto; /*auto margin for left and right, this means
+                   that the margin is equally applied left/right.*/
+}
+
+.slider-container{
+    margin-top: 2vh;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 10px;
+    background: #000;
+    cursor: pointer;
+    border: 5px solid black;
+    border-radius: 4px;
+  }

@@ -59,13 +59,7 @@ function resetBoard(){
     }
 
 
-var colorPickerButton = document.getElementById("custom");
-var colorPickerDialog = document.getElementById("color-picker-dialog");
 var colorPicker = document.getElementById("color-picker");
-
-colorPickerButton.addEventListener("click", function() {
-    colorPickerDialog.removeAttribute("hidden");
-});
 
 colorPicker.addEventListener("change", function() {
     var selectedColor = colorPicker.value;

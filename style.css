@@ -13,16 +13,6 @@ body {
     border: 3px solid black;
 }
 
-#color-picker-dialog {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px gray;
-  }
 
 #canvas-container{
     display: flex;
@@ -47,7 +37,7 @@ body {
 
 }
 
-.button{
+.button, #color-picker{
     width: 15vh;
     height: 5vh;
     background-color: white;

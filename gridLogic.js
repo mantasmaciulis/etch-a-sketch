@@ -56,7 +56,33 @@ rainbow.addEventListener('click', function() {
 function resetBoard(){
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "gray";
+  
+    const canvasBoundingRect = canvas.getBoundingClientRect();
+
+    let scaleX = canvas.width / canvasBoundingRect.width;
+    let scaleY = canvas.height / canvasBoundingRect.height;
+    let offsetX = Math.floor(canvas.width / cells);
+    let offsetY = Math.floor(canvas.height / cells);
+  
+    for (let x = offsetX; x < canvas.width; x += offsetX) {
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, canvas.height);
     }
+    
+    for (let y = offsetY; y < canvas.height; y += offsetY) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(canvas.width, y);
+    }
+    
+    ctx.stroke();
+
+    
+
+}
 
 
 var colorPicker = document.getElementById("color-picker");
@@ -67,6 +93,13 @@ colorPicker.addEventListener("change", function() {
     paintColour = selectedColor;
     colorPickerDialog.setAttribute("hidden", true);
 });
+
+slider.oninput = function() {
+    cells = this.value;
+    cellPixelLength = (canvas.height / cells);
+    resetBoard();
+}
+
 
 
 

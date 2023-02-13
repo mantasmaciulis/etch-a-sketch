@@ -11,8 +11,7 @@ let cellPixelLength = (canvas.height / cells);
 
 paintColour = 'black';
 
-ctx.fillStyle = 'white';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+resetBoard();
 
 canvas.addEventListener('mousedown', function(e) { 
     drawOnMouseDown(e);
@@ -20,6 +19,9 @@ canvas.addEventListener('mousedown', function(e) {
 });
 canvas.addEventListener('mouseup', function(e) {
     canvas.removeEventListener('mousemove', drawOnMouseDown);
+});
+reset.addEventListener('click', function() {
+    resetBoard();
 });
 
 
@@ -50,6 +52,11 @@ rainbow.addEventListener('click', function() {
     var grid = document.getElementById('grid');
 
 });
+
+function resetBoard(){
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
 
 
 

@@ -1,32 +1,19 @@
-
 body {
-    height: auto;
     background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);}
+    background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);
+    align-items: center;
 
-
-#canvas{
-    /* Note to future self. 1fr means take up one fraction of the container rows times. 
-    therefore, the following 2 lines will give us an nxm grid that takes up all the availiable
-    space evenly. */
-    display: flex;
-    border: 3px solid black;
 }
 
+#canvas{
+    border: 3px solid black;
+}
 
 #canvas-container{
     display: flex;
     justify-content: center;
+    margin-top: 10vh;
     height: 70vh;
-}
-
-.title{
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 6rem;
-    color: white;
-    outline-color: 3px solid black;
-    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black,0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
 }
 
 .buttons{

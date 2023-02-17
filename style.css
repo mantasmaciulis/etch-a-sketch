@@ -1,6 +1,6 @@
 
 body {
-    height: 90vh;
+    height: auto;
     background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);}
 
@@ -17,6 +17,7 @@ body {
 #canvas-container{
     display: flex;
     justify-content: center;
+    height: 70vh;
 }
 
 .title{
@@ -34,6 +35,8 @@ body {
     gap: 50px;
     margin-top: 2vh;
     justify-content: center;
+    /* text size to 20 */
+    font-size: 30px;
 
 }
 
@@ -42,6 +45,7 @@ body {
     height: 5vh;
     background-color: white;
     border: 3px solid #000;
+    font-size: 30px;
 
 }
 

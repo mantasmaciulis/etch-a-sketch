@@ -1,105 +1,123 @@
 const slider = document.getElementById('myRange');
 const reset = document.getElementById('reset');
 const rainbow = document.getElementById('rainbow');
-
 const canvas = document.getElementById('canvas');
+const colorPicker = document.getElementById("color-picker");
+
 canvas.width = canvas.height = Math.min(1000, window.innerWidth);
 
 const ctx = canvas.getContext('2d');
+
+
+// Initial dimension of canvas in drawable pixels and paint colour
 let cells = 20;
 let cellPixelLength = (canvas.height / cells);
 
 paintColour = 'black';
-
+// Hue used for rainbow mode
+let hue = 0;
+let rainbowMode = false;
+// Satart with an empty grid
 resetBoard();
+
+
 
 canvas.addEventListener('mousedown', function(e) { 
     drawOnMouseDown(e);
     canvas.addEventListener('mousemove', drawOnMouseDown);
 });
+
 canvas.addEventListener('mouseup', function(e) {
+    //We remove the mousemove listener when the mouse is up to allow the user to stop drawing.
     canvas.removeEventListener('mousemove', drawOnMouseDown);
 });
-reset.addEventListener('click', function() {
-    resetBoard();
+
+reset.addEventListener('click', resetBoard);
+
+rainbow.addEventListener('click', function() {
+    rainbowMode = !rainbowMode;
 });
 
+
+function rainbowColor() {
+  // increment hue by a fixed amount
+  hue += 3;
+
+  // wrap hue back to 0 when it reaches 360
+  if (hue >= 360) {
+    hue = 0;
+  }
+
+  // convert HSL values to RGB color
+  const rgbColor = `hsl(${hue}, 100%, 50%)`;
+
+  return rgbColor;
+}
 
 function drawOnMouseDown(e) {
 
     const canvasBoundingRect = canvas.getBoundingClientRect();
 
+    // The scale is required because the canvas element can be scaled differently from it's otiginal 
+    // size which could cause the mouse coordinates to be off.
     scaleX = canvas.width / canvasBoundingRect.width;
     scaleY = canvas.height / canvasBoundingRect.height;
-
 
     const x = (e.clientX - canvasBoundingRect.left) * scaleX;
     const y = (e.clientY - canvasBoundingRect.top) * scaleY;
 
     fillCell(Math.floor(x / cellPixelLength), Math.floor(y / cellPixelLength));
-
 }
 
 function fillCell(x,y){
-    ctx.fillStyle = paintColour;
+    if (rainbowMode){
+        ctx.fillStyle = rainbowColor();
+    } else {
+        ctx.fillStyle = paintColour;
+    }
     ctx.fillRect(x * cellPixelLength, y * cellPixelLength, cellPixelLength, cellPixelLength);
-
 }
-
-
-rainbow.addEventListener('click', function() {
-    paintColour = 'yellow';
-    var grid = document.getElementById('grid');
-
-});
 
 function resetBoard(){
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawGrid();
+}
 
+function drawGrid(){
     ctx.beginPath();
     ctx.lineWidth = 1;
     ctx.strokeStyle = "gray";
   
-    const canvasBoundingRect = canvas.getBoundingClientRect();
-
-    let scaleX = canvas.width / canvasBoundingRect.width;
-    let scaleY = canvas.height / canvasBoundingRect.height;
-    let offsetX = Math.floor(canvas.width / cells);
-    let offsetY = Math.floor(canvas.height / cells);
+    //pixel size used as offset for each line
+    let offsetX = (canvas.width / cells);
+    let offsetY = (canvas.height / cells);
   
+    //lines in x direction
     for (let x = offsetX; x < canvas.width; x += offsetX) {
       ctx.moveTo(x, 0);
       ctx.lineTo(x, canvas.height);
     }
     
+    //ines in y direction
     for (let y = offsetY; y < canvas.height; y += offsetY) {
       ctx.moveTo(0, y);
       ctx.lineTo(canvas.width, y);
     }
     
+    //actually draw the lines
     ctx.stroke();
-
-    
-
 }
-
-
-var colorPicker = document.getElementById("color-picker");
 
 colorPicker.addEventListener("change", function() {
     var selectedColor = colorPicker.value;
-    // Do something with the selected color
     paintColour = selectedColor;
     colorPickerDialog.setAttribute("hidden", true);
 });
 
 slider.oninput = function() {
+    //slider is used to resize the canvas
     cells = this.value;
     cellPixelLength = (canvas.height / cells);
     resetBoard();
 }
-
-
-
-

@@ -2,7 +2,6 @@ body {
     background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);
     align-items: center;
-
 }
 
 #canvas{
@@ -50,7 +49,7 @@ body {
   background: white;
   border: 3px solid black;
 
-  width: 10%; /*30% size of parent container*/
+  width: 50%; /*20% size of parent container*/
   margin: 0 auto; /*auto margin for left and right, this means
                    that the margin is equally applied left/right.*/
 }
@@ -66,6 +65,6 @@ body {
     height: 10px;
     background: #000;
     cursor: pointer;
-    border: 5px solid black;
-    border-radius: 4px;
+    border: 1px solid black;
+    border-radius: 0px;
   }

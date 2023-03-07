@@ -3,6 +3,7 @@ const reset = document.getElementById('reset');
 const rainbow = document.getElementById('rainbow');
 const canvas = document.getElementById('canvas');
 const colorPicker = document.getElementById("color-picker");
+const download = document.getElementById('download');
 
 canvas.width = canvas.height = Math.min(1000, window.innerWidth);
 
@@ -14,11 +15,49 @@ let cells = 20;
 let cellPixelLength = (canvas.height / cells);
 
 paintColour = 'black';
+colorPicker.style.border = "10px solid #E75480";
+rainbow.style.border = "10px solid black";
+
 // Hue used for rainbow mode
 let hue = 0;
 let rainbowMode = false;
 // Satart with an empty grid
 resetBoard();
+
+reset.addEventListener('mouseenter', function( event ) {   
+    event.target.style.background = "lightpink";
+  }, false);
+
+reset.addEventListener('mouseleave', function( event ) {
+    event.target.style.background = "";
+    }, false);
+
+rainbow.addEventListener('mouseenter', function( event ) {
+    event.target.style.background = "lightpink";
+    }, false);
+
+rainbow.addEventListener('mouseleave', function( event ) {
+    event.target.style.background = "";
+    }, false);
+
+download.addEventListener('mouseenter', function( event ) {
+    event.target.style.background = "lightpink";
+    }, false);
+
+download.addEventListener('mouseleave', function( event ) {
+    event.target.style.background = "";
+    }, false);
+
+rainbow.addEventListener('click', function( event ) {
+    event.target.style.border = "10px solid #E75480";
+    colorPicker.style.border = "10px solid black";
+    }, false);
+
+colorPicker.addEventListener('click', function( event ) {
+    event.target.style.border = "10px solid #E75480";
+    rainbow.style.border = "10px solid black";
+    }, false);
+
 
 
 

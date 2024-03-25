@@ -3,7 +3,6 @@ const reset = document.getElementById('reset');
 const rainbow = document.getElementById('rainbow');
 const canvas = document.getElementById('canvas');
 const colorPicker = document.getElementById("color-picker");
-const download = document.getElementById('download');
 
 canvas.width = canvas.height = Math.min(1000, window.innerWidth);
 
@@ -40,14 +39,6 @@ rainbow.addEventListener('mouseleave', function( event ) {
     event.target.style.background = "";
     }, false);
 
-download.addEventListener('mouseenter', function( event ) {
-    event.target.style.background = "lightpink";
-    }, false);
-
-download.addEventListener('mouseleave', function( event ) {
-    event.target.style.background = "";
-    }, false);
-
 rainbow.addEventListener('click', function( event ) {
     event.target.style.border = "10px solid #E75480";
     colorPicker.style.border = "10px solid black";
@@ -56,6 +47,8 @@ rainbow.addEventListener('click', function( event ) {
 colorPicker.addEventListener('click', function( event ) {
     event.target.style.border = "10px solid #E75480";
     rainbow.style.border = "10px solid black";
+    rainbowMode = false;
+
     }, false);
 
 
@@ -74,7 +67,7 @@ canvas.addEventListener('mouseup', function(e) {
 reset.addEventListener('click', resetBoard);
 
 rainbow.addEventListener('click', function() {
-    rainbowMode = !rainbowMode;
+    rainbowMode = true;
 });
 
 

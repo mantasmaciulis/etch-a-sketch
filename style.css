@@ -1,6 +1,7 @@
 body {
     background: linear-gradient(90deg, rgba(131,58,180,0.8) 0%, rgba(253,29,29,0.5) 50%, rgba(252,250,69,0.5) 100%);
     align-items: center;
+
 }
 
 #canvas{
@@ -10,8 +11,7 @@ body {
 #canvas-container{
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
-    height: 70vh;
+    height: 35vw;
 }
 
 #titlepick{
@@ -19,9 +19,15 @@ body {
     align-items: center;
     display: flex;
     gap: 50px;
-    margin-top: 2vh;
     /* text size to 20 */
     font-size: s0px;
+}
+.title{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 15px;
+    font-size: 40px;
 }
 
 .buttons{
@@ -41,7 +47,6 @@ body {
     height: 5vh;
     background-color: transparent;
     border: 3px solid #000;
-    font-size: 30px;
 
 }
 

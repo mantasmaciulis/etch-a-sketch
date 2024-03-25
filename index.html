@@ -8,26 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- <h1 class="title">Etch-A-Sketch</h1> -->
+    <div class="page-container">
+    <h1 class="title">Etch-A-Sketch</h1>
     <div id="canvas-container">
         <canvas id="canvas"></canvas>
     </div>
-    <!-- Slider to select pixel size that user drawns in -->
     <div class = "slider-container">
         <input type="range" min="5" max="50" value="27.5" class="slider" id="myRange">
     </div>
-
     <div class="buttons">
+        <button class="lessimportantbutton" id="reset">Reset</button>
             <h3 id = "titlepick">colour : </h3>
             <input type="color" id="color-picker">
             <button class="button" id="rainbow">Rainbow</button>
-            <!-- <button class="button" id="save">Save to file</button> -->
     </div>
-    <div class = "buttons">
-        <button class="lessimportantbutton" id="reset">Reset</button>
-        <button class="lessimportantbutton" id="download">Download</button>
-    </div>
+</div>
 
     <script src="gridLogic.js" defer></script>
 
